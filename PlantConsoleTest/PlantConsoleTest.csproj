@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageId>ZementTech</PackageId>
+    <Authors>mbo</Authors>
+    <Company />
+    <Product>ZementTech</Product>
+    <AssemblyName>ZementTech</AssemblyName>
+    <RootNamespace>ZementTech</RootNamespace>
+    <Deterministic>false</Deterministic>
+    <AssemblyVersion>1.0.0.*</AssemblyVersion>
+    <ApplicationIcon />
+    <StartupObject>PlantConsoleTest.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Plant\Plant.csproj" />
+  </ItemGroup>
+
+</Project>
