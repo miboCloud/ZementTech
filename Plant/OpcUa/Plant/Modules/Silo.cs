@@ -28,6 +28,19 @@ namespace Plant.OpcUa.Plant.Modules
 
         public Valve Outlet { get; set; }
 
+        protected override void OnCriticalStop(object sender)
+        {
+            if (!sender.Equals(Level))
+            {
+                State = OperationState.CriticalStop;
+            }
+        }
+
+        protected override bool ReceiverReleased()
+        {
+            return !Level.ErrorActive;
+        }
+
         public override void Simulate(int clock)
         {
             base.Simulate(clock);

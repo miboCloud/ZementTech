@@ -64,13 +64,13 @@ namespace Plant.OpcUa.Common
             }
         }
 
-        protected void OnAlarmEventChanged(object sender, AlarmEventArgs e)
+        protected virtual void OnAlarmEventChanged(object sender, AlarmEventArgs e)
         {
             if (e.Active)
             {
                 if (e.AlarmType == AlarmType.Error)
                 {
-                    OnCriticalStop();
+                    OnCriticalStop(sender);
                 }
 
                 if (e.AlarmType == AlarmType.Warning)
@@ -157,7 +157,7 @@ namespace Plant.OpcUa.Common
             }
         }
 
-        protected void OnStart()
+        protected virtual void OnStart()
         {
             if(State == OperationState.Stopped)
             {
@@ -165,7 +165,7 @@ namespace Plant.OpcUa.Common
             }
         }
 
-        protected void OnStop()
+        protected virtual void OnStop()
         {
             if(State == OperationState.Started)
             {
@@ -173,7 +173,7 @@ namespace Plant.OpcUa.Common
             }
         }
 
-        protected void OnCriticalStop()
+        protected virtual void OnCriticalStop(object sender)
         {
             State = OperationState.CriticalStop;
         }

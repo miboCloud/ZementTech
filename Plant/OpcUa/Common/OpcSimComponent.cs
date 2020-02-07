@@ -53,7 +53,6 @@ namespace Plant.OpcUa.Common
 
         private void _simWarning_BeforeApplyChanges(object sender, EventArgs e)
         {
-            WarningActive = _simWarning.Value;
             OnAlarmEventOccured(new AlarmEventArgs(AlarmType.Warning, _simWarning.Value));
         }
 
@@ -61,7 +60,6 @@ namespace Plant.OpcUa.Common
         {
             if (_simError.Value)
             {
-                ErrorActive = true;
                 OnAlarmEventOccured(new AlarmEventArgs(AlarmType.Error, true));
             }
         }
@@ -80,7 +78,18 @@ namespace Plant.OpcUa.Common
 
         protected virtual void OnAlarmEventOccured(AlarmEventArgs e)
         {
-            
+         
+            if(e.AlarmType == AlarmType.Error && e.Active)
+            {
+                ErrorActive = true;
+            }
+
+            if(e.AlarmType == AlarmType.Warning)
+            {
+                WarningActive = e.Active;
+            }
+
+
             EventHandler<AlarmEventArgs> handler = AlarmEventChanged;
             if (handler != null)
             {
