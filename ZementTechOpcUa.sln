@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plant", "Plant\Plant.csproj", "{4BB9B06D-949F-46E6-AFDA-2D43A178E2A0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantConsoleTest", "PlantConsoleTest\PlantConsoleTest.csproj", "{8A91B860-0193-4CEB-AEC7-2C59750D4563}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantRuntime", "PlantConsoleTest\PlantRuntime.csproj", "{8A91B860-0193-4CEB-AEC7-2C59750D4563}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
