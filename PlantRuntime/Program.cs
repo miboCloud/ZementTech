@@ -1,4 +1,6 @@
-﻿using Plant.OpcUa;
+﻿using Opc.UaFx.Server;
+using Plant.OpcUa;
+using Plant.OpcUa.Sim;
 using System;
 using System.Threading;
 
@@ -6,43 +8,52 @@ namespace PlantConsoleTest
 {
     public class Program
     {
+        private static string DefaultEndpoint = "opc.tcp://localhost:4841/";
+
         static void Main(string[] args)
         {
-            try
+            string endpoint = DefaultEndpoint;
+
+            if (args != null & args.Length > 0)
             {
-                if (args != null & args.Length > 0)
+                if (args[0].Contains("opc.tcp://"))
                 {
-                    if (args[0].Contains("opc.tcp://")){
-                        Console.WriteLine("Application started with arguments.");
-                        Server = new ZementTechOpcUaServer(args[0]);
-                    }
+                    Console.WriteLine("application started with arguments.");
+                    endpoint = args[0];
                 }
-
-                if(Server == null)
-                {
-                    Console.WriteLine("Application started default.");
-                    Server = new ZementTechOpcUaServer();
-                }
-                
-                Server.Start();
-
-                Console.ReadKey();
-
             }
-            catch(Exception e)
-            {
-                Console.WriteLine("Exception during execution of OPC UA Server.");
-                Console.WriteLine("Press any key to stop...");
-                Console.ReadKey();
-            }
-            finally
-            {
-                Console.WriteLine("Shutdown simulation... please wait");
-                Server?.Stop();
-            }
+
+            var app = new OpcServerApplication(endpoint, NodeManager = new ZementTechNodeManager());
+
+            app.Started += Server_Started;
+
+            app.Run();
         }
 
-        public static ZementTechOpcUaServer Server { get; set; }
+        private static void Server_Started(object sender, EventArgs e)
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var version = assembly.GetName().Version;
+            Console.WriteLine("Version: " + version);
+            Console.WriteLine("#####################################################################");
+            Console.WriteLine("#                                                                   #");
+            Console.WriteLine("#                         ZementTech - Simulation                   #");
+            Console.WriteLine("#                                                                   #");
+            Console.WriteLine("#                         Autor: FHNW - mbo, 2020                   #");
+            Console.WriteLine("#####################################################################");
+
+            Console.WriteLine("Server Endpoint available: " + DefaultEndpoint);
+
+            Simulator.Instance().ZementTechNodeManager = NodeManager;
+
+            Thread t = new Thread(Simulator.Instance().Execute);
+
+            t.IsBackground = true;
+            t.Start();
+            Console.WriteLine("Simulation started.");
+        }
+
+        public static ZementTechNodeManager NodeManager { get; set; }
 
     }
 }
