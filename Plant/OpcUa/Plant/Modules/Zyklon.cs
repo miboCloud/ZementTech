@@ -26,6 +26,8 @@ namespace Plant.OpcUa.Plant.Modules
 
             exhaustHeat = new OpcDataVariableNode<bool>(this, "AbwärmeOk", false);
             exhaustHeat.AccessLevel = OpcAccessLevel.CurrentRead;
+
+            tempSensors.ForEach(s => RegisterComponent(s));
         }
 
         public bool HeatOk
