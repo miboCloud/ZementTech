@@ -10,7 +10,7 @@
     <AssemblyName>ZementTech</AssemblyName>
     <RootNamespace>ZementTech</RootNamespace>
     <Deterministic>false</Deterministic>
-    <AssemblyVersion>1.0.0.*</AssemblyVersion>
+    <AssemblyVersion>1.0.4.*</AssemblyVersion>
     <ApplicationIcon />
     <StartupObject>PlantConsoleTest.Program</StartupObject>
   </PropertyGroup>
