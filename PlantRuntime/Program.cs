@@ -28,15 +28,11 @@ namespace PlantConsoleTest
             var app = new OpcServerApplication(endpoint, NodeManager = new ZementTechNodeManager());
 
             app.Started += Server_Started;
-
-            app.Run();       
-            
             LicenseInfo license = Opc.UaFx.Server.Licenser.LicenseInfo;
+            
+            Console.WriteLine("License expiration date: " + license.ExpiryDate);
 
-            if (license.IsExpired)
-                Console.WriteLine("The OPA UA Framework Advanced license is expired!");
-
-        }
+            app.Run();               }
 
         private static void Server_Started(object sender, EventArgs e)
         {
