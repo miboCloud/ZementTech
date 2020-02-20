@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Plant\Plant.csproj" />
+    <ProjectReference Include="..\ZementTechPlant\ZementTechPlant.csproj" />
   </ItemGroup>
 
 </Project>

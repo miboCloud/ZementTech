@@ -14,6 +14,10 @@ namespace Plant.OpcUa
         public ZementTechNodeManager()
         : base("http://mibo.io/zementtech")
         {
+
+            Opc.UaFx.Licenser.LicenseKey =
+               "093oXoIEpOG5TntLTi+LyFFTgmXO7B9W0t7RNCJZo4r6AfPloZuR0j9xPMNzyurVI3UMKN7ayqQ1NRG+KSeSXVg16VUYRS3YJe3qMpGQWSMA06uzF97xM1S03ksFgOw0KxoREaQHNxjlFSSo9IeNxt8eq9wEl+j52bGEUjzFgLNbyA0NrHmiKGG839jBMe4x71hCuYf3soDUZJs5/PnBHElGh1d0UtnbA+KrRVbfM4iwLcsFVEVVj2oJFyWmqvHimIVdYbuDbLzkOUF0xTWn6+Guz6/E4fQciIVx17CsqkPXgj1xPu9XFNny6+k5jFqnjv7yH+/P7nwjgLooavF7osST5Eibe+u36BtxFRF61JwDCZg3lb1DDIKOvXAuVqDB3gymw7yPi8MpKkiAKJzgp117d3CclrPyamka33Jw1BgJMuAaJ2kl6yP76nyGmEolCLfs8EqJvEsF6YtGftyzd29dT0msCig55AkxsuqHj87VdO+CQ5zp2s65lHgorciETM9OXvEw8gBlsM6Q5yb8drJmEqn03ZfImjLFYu2IlDJ4FNQQRwqIlSbotXRazm+bsVztGFBUWK9mKhQtsarz5paCBz7q2y/tvHodIN4oven1ttio9ernHY2ZXMzkj989spZLLmOuE2iJv77kTtUJ9d+rpXHQy9NnL5O2IzPa1nOVueBW01u9le4ZOBkbbfqUFBbCG5u1Sl3cv5J4Mlm0m/EF7vSdm4jSZnF7MSTgetJj05WN2txhFUHNG+QFM5ouBAO5msHFQ+OXZJNzkI8KExCL46ih0bE7bVi0iiQb901cbcDZSqQRJ65bKxAFJvsV/4qGXkrjwGTQidTLAI8ooJ9BlCcuaO/E5ecCM/ksJz5kb59PC+8ixxfE23gLV8PBImtTPpjvT6I7HP3Ab7+hgVJ7ODxFi5vYe00Alwj3KGGQXnb7DWvTeyGefuei6B3EMRXBAfIypG4L/WUfecz/lw2V+Pv6CVzO50uVjR8IGsPH3rM0ms7R0gCaWGV2x2sSiraWB1rPJQL5P3rx1aMeF4yPz4Nf9PX+4e27kFJugmx4jt+IGdBswfRYOQ==";
+
             Console.WriteLine("Load OPC UA Nodemanager...Done");
         }
 
